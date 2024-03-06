@@ -1,0 +1,11 @@
+.sidebar-items{
+    display: flex;
+    flex-direction: column;
+   text-align: center ;
+}
+.sidebar-items a{
+    text-decoration: none;
+ }
+.sidebar-items a:hover{
+   background-color: white;
+}
