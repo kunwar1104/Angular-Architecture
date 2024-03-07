@@ -8,6 +8,7 @@ import { AuthLayoutComponent } from './shared/component/layout/auth-layout/auth-
 import { LoaderComponent } from './shared/component/loader/loader.component';
 import { NotificationComponent } from './shared/component/notification/notification.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
+import { ErrorComponent } from './shared/component/error/error.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
     AuthLayoutComponent,
     LoaderComponent,
     NotificationComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,

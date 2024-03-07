@@ -57,9 +57,24 @@
     </div>
     <div class="offcanvas-body sidebar-items">
         <!-- <p>Try scrolling the rest of the page to see this option in action.</p> -->
-       <a routerLink="/dashboard">Dashboard</a>
-       <a routerLink="/user">Users</a>
-       <a routerLink="/settings">Settings</a>
-
+        <a routerLink="/dashboard">Dashboard</a>
+        <a routerLink="/user">Users</a>
+        <!-- <a>settings </a> -->
+    
+        <!-- <div class="dropdown">
+            <button class="dropbtn">Select an option</button>
+            <div class="dropdown-content">
+                <a href="#">Option 1</a>
+                <a href="#">Option 2</a>
+                <a href="#">Option 3</a>
+            </div>
+        </div> -->
+        <div class="dropdown" [ngClass]="{ 'active': isOpen }">
+            <a ><button class="dropbtn" (click)="toggleDropdown()">Settings</button></a>
+            <div class="dropdown-content" *ngIf="isOpen">
+              <a routerLink="settings/modules">Modules</a>
+              <a routerLink="settings/permission">Permissin</a>
+            </div>
+          </div>
     </div>
 </div>
