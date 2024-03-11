@@ -1,0 +1,17 @@
+.loader-container{
+    // position: relative;
+    // z-index: 99999;
+    // display: flex;
+    // justify-content: center;
+    position: fixed;  /* Positions the container relative to the viewport */
+  top: 0;           /* Top edge of the viewport */
+  left: 0;          /* Left edge of the viewport */
+  right: 0;         /* Right edge of the viewport */
+  bottom: 0;        /* Bottom edge of the viewport */
+  z-index: 99999;  /* Ensures loader stays on top */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    
+   
+}

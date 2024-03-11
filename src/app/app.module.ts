@@ -19,8 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     ForgetPasswordComponent,
     AuthLayoutComponent,
     LoaderComponent,
-    NotificationComponent,
     ErrorComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,

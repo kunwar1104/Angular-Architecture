@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ApiHandlerService } from '../services/api-handler/api-handler.service';
+import { ApiHandlerService } from '../shared/services/api-handler/api-handler.service';
 import { LOGIN } from '../shared/models/auth-model';
 import { Observable, tap } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';

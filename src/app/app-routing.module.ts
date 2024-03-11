@@ -6,6 +6,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { ErrorComponent } from './shared/component/error/error.component';
+import { NotificationComponent } from './shared/component/notification/notification.component';
 
 const routes: Routes = [
   {
@@ -56,6 +57,10 @@ const routes: Routes = [
       },
      
     ]
+  },
+  {
+    path:"notif",
+    component:NotificationComponent
   },
   {
     path: "**",

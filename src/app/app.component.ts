@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoaderService } from './shared/services/loader/loader.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular-Architecture';
+
+  // loading$ = this.loadingService.loading$;
+
+  // constructor(
+  //   private loadingService: LoaderService,
+    
+  // ) { }
 }
