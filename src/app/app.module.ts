@@ -9,6 +9,8 @@ import { LoaderComponent } from './shared/component/loader/loader.component';
 import { NotificationComponent } from './shared/component/notification/notification.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { ErrorComponent } from './shared/component/error/error.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,9 @@ import { ErrorComponent } from './shared/component/error/error.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   // exports: [
   //   DashboardLayoutComponent

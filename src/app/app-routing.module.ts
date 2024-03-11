@@ -8,21 +8,34 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { ErrorComponent } from './shared/component/error/error.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: "auth",
-  //   pathMatch: "full"
-  // },
+  {
+    path: '',
+    redirectTo: "login",
+    pathMatch: "full"
+  },
   {
     path: "",
     component: AuthLayoutComponent,
     children: 
     [
-      {
-        path: "",
+     {
+        path: "login",
         component: LoginComponent
       },
+      {
+        path: "",
+        // component: ForgetPasswordComponent,
+        loadChildren: () => import("./auth/auth.module").then(m => m.AuthModule)
 
+      },
+       // {
+      //   path: "",
+      //   component: LoginComponent
+      // },
+      // {
+      //   path: "for-pass" ,
+      //   component: ForgetPasswordComponent 
+      // },
     ]
   },
   {
@@ -41,6 +54,7 @@ const routes: Routes = [
         path: "settings",
         loadChildren: () => import("./modules/settings/settings.module").then(m => m.SettingsModule)
       },
+     
     ]
   },
   {
