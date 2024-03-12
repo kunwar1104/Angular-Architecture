@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ModulesComponent } from './modules/modules.component';
 import { PermissionComponent } from './permission/permission.component';
+import { AuthenticationGuard } from 'src/app/shared/guards/authentication/authentication.guard';
+import { DashboardGuard } from 'src/app/shared/guards/dashboard/dashboard.guard';
 
 const routes: Routes = [
   // {
@@ -10,11 +12,15 @@ const routes: Routes = [
   // },
   {
     path: "modules",
-    component: ModulesComponent
+    component: ModulesComponent,
+    canActivate: [DashboardGuard],
+
   },
   {
     path: "permission",
-    component: PermissionComponent
+    component: PermissionComponent,
+    canActivate: [DashboardGuard],
+
   }
 
 ];

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { LOGIN } from '../../shared/models/auth-model';
+import { LOGIN } from '../../models/auth-model';
 import { Observable, catchError,throwError } from 'rxjs';
 
 @Injectable({
