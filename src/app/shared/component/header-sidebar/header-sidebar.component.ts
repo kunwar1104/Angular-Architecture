@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./header-sidebar.component.scss']
 })
 export class HeaderSidebarComponent {
-  isOpen = false;
+  isOpen : boolean = false;
 
   toggleDropdown() {
     this.isOpen = !this.isOpen;
