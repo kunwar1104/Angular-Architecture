@@ -48,16 +48,18 @@ export class LoginComponent {
            setTimeout(() => {
             this.loader.hide();
            this.ns.showNotification(" alert alert-success", "Login Successfully")
-
+       
+           if(this.apiRes.token){
+            localStorage.setItem("token",this.apiRes.token);
+            console.log(localStorage.setItem("token",this.apiRes.token))
+           //  this.router.navigate(["/dashboard"])
+            }
             this.router.navigate(["/dashboard"])
 
            },1000)
          
         })
-        if(this.apiRes.token){
-           localStorage.setItem("token",this.apiRes.token);
-          //  this.router.navigate(["/dashboard"])
-        }
+       
       }
     },2000);
 

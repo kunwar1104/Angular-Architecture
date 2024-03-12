@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ForgetPasswordComponent } from 'src/app/auth/forget-password/forget-password.component';
 import { LoginComponent } from 'src/app/auth/login/login.component';
+import { AuthenticationGuard } from '../shared/guards/authentication/authentication.guard';
 
 const routes: Routes = [
   {
@@ -11,7 +12,8 @@ const routes: Routes = [
   },
   {
     path: "for-pass",
-    component: ForgetPasswordComponent
+    component: ForgetPasswordComponent,
+    // canActivate:[AuthenticationGuard]
   },
   // {
   //   path:"login",

@@ -3,25 +3,26 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardLayoutComponent } from './shared/component/layout/dashboard-layout/dashboard-layout.component';
 import { AuthLayoutComponent } from './shared/component/layout/auth-layout/auth-layout.component';
 import { LoginComponent } from './auth/login/login.component';
-import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
-import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { ErrorComponent } from './shared/component/error/error.component';
-import { NotificationComponent } from './shared/component/notification/notification.component';
+import { DashboardGuard } from './shared/guards/dashboard/dashboard.guard';
+import { AuthenticationGuard } from './shared/guards/authentication/authentication.guard';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: "login",
-    pathMatch: "full"
-  },
+  // {
+  //   path: '',
+  //   redirectTo: "login",
+  //   pathMatch: "full"
+  // },
   {
     path: "",
     component: AuthLayoutComponent,
+    // canActivate:[AuthenticationGuard],
     children: 
     [
      {
         path: "login",
-        component: LoginComponent
+        component: LoginComponent,
+        // canActivate: [AuthenticationGuard]
       },
       {
         path: "",
@@ -29,23 +30,16 @@ const routes: Routes = [
         loadChildren: () => import("./auth/auth.module").then(m => m.AuthModule)
 
       },
-       // {
-      //   path: "",
-      //   component: LoginComponent
-      // },
-      // {
-      //   path: "for-pass" ,
-      //   component: ForgetPasswordComponent 
-      // },
     ]
   },
   {
     path: "",
     component: DashboardLayoutComponent,
+    canActivate: [DashboardGuard],
     children: [
       {
         path: "dashboard",
-        loadChildren: () => import("./modules/dashboard/dashboard.module").then(m => m.DashboardModule)
+        loadChildren: () => import("./modules/dashboard/dashboard.module").then(m => m.DashboardModule),
       },
       {
         path: "user",
@@ -57,10 +51,6 @@ const routes: Routes = [
       },
      
     ]
-  },
-  {
-    path:"notif",
-    component:NotificationComponent
   },
   {
     path: "**",
