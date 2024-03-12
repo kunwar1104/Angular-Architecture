@@ -16,13 +16,13 @@ const routes: Routes = [
   {
     path: "",
     component: AuthLayoutComponent,
-    // canActivate:[AuthenticationGuard],
+    canActivate:[AuthenticationGuard],
     children: 
     [
      {
         path: "login",
         component: LoginComponent,
-        // canActivate: [AuthenticationGuard]
+        canActivate: [AuthenticationGuard]
       },
       {
         path: "",

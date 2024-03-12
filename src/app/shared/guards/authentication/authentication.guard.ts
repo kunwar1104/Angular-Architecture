@@ -17,13 +17,16 @@ export class AuthenticationGuard implements CanActivate {
 
       this.localStorage = localStorage.getItem("token") 
 
-    if(  this.localStorage === null) {
-      console.log(localStorage.getItem("token"));
-      this.route.navigate(['/login']);
+    if( !localStorage.getItem("token") ) {
+      console.log("Auth Guard Token ",localStorage.getItem("token"));
       
+      return true;
+    } else{
+      this.route.navigate(['/dashboard']);
+
       return false;
+
     }
-    return true;
 
   }
   

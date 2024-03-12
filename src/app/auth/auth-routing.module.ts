@@ -13,7 +13,7 @@ const routes: Routes = [
   {
     path: "for-pass",
     component: ForgetPasswordComponent,
-    // canActivate:[AuthenticationGuard]
+    canActivate:[AuthenticationGuard]
   },
   // {
   //   path:"login",

@@ -15,7 +15,7 @@ export class DashboardGuard implements CanActivate {
 
         if(localStorage.getItem("token")) {
           
-          // console.log(localStorage.getItem("token"));
+          console.log("Dashboard Token ",localStorage.getItem("token"));
           // this.route.navigate(['/dashboard']);
       
       return true;
