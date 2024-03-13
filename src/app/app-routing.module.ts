@@ -6,6 +6,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { ErrorComponent } from './shared/component/error/error.component';
 import { DashboardGuard } from './shared/guards/dashboard/dashboard.guard';
 import { AuthenticationGuard } from './shared/guards/authentication/authentication.guard';
+import { NotificationComponent } from './shared/component/notification/notification.component';
 
 const routes: Routes = [
   // {
@@ -53,9 +54,14 @@ const routes: Routes = [
     ]
   },
   {
+    path:"noti",
+    component:NotificationComponent
+  },
+  {
     path: "**",
     component:ErrorComponent
-  }
+  },
+ 
 
 
 ];

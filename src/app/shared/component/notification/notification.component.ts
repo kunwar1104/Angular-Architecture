@@ -11,11 +11,12 @@ export class NotificationComponent {
   $notification = this.notificationService.notifications$ ;
   type!:string | any;
   message!:string | any;
+  icon:boolean |any;
   time?:string; 
   
   constructor(  private notificationService: NotificationService ) {
     
-    this.notificationService.showNotification(this.type,this.message)
+    this.notificationService.showNotification(" alert alert-success", "Login Successfully", this.icon)
   }
   
   // ngOnInit(): void {

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-sidebar',
@@ -7,8 +8,17 @@ import { Component } from '@angular/core';
 })
 export class HeaderSidebarComponent {
   isOpen : boolean = false;
+  
+  constructor( private route:Router){
 
+  }
   toggleDropdown() {
     this.isOpen = !this.isOpen;
+  }
+  logOut(){
+    localStorage.removeItem("token")
+    this.route.navigate(['/login'])
+
+    console.log("removed click")
   }
 }

@@ -20,17 +20,18 @@
     <form [formGroup]="loginForm" class="commen-form" (ngSubmit)="submit()">
 
       <input class="form-control" type="email" id="username" formControlName="username"
-             placeholder="Please Enter Emial " >
+             placeholder="Please Enter Emial " required >
              
-      <span class="error" *ngIf="loginForm.get('username')?.invalid && loginForm.get('email_id')?.touched">
+      <span class="error" *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched">
         <small *ngIf="loginForm.get('username')?.hasError('required')">Email is required</small>
+        <small *ngIf="loginForm.get('username')?.hasError('pattern')">Email is not valid</small>
       </span>
 
       <input class="form-control" type="password" id="password" formControlName="password"
         placeholder="Please Enter Password" required>
       <div class="error " *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
         <small *ngIf="loginForm.get('password')?.hasError('required')">Password is required</small>
-        <small *ngIf="loginForm.get('password')?.hasError('pattern')">Password Atlest 8 Charectors </small>
+        <small *ngIf="loginForm.get('password')?.hasError('pattern')">Password Atlest 9 Charectors </small>
 
       </div>
 

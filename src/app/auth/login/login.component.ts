@@ -12,12 +12,15 @@ import { NotificationService } from 'src/app/shared/services/notification/notifi
 })
 export class LoginComponent {
   loginForm! : FormGroup<any> ;
-  passord_pattern = /^[a-zA-Z0-9]{8}$/;
   sending: boolean = false;
-  apiRes? : any = {}
+  apiRes? : any = {};
+  icon:boolean|any;
+  // email_pattern = /^([a-zA-Z0-9][a-zA-Z0-9\-_]*|\.[a-zA-Z0-9\-_]+)$/;
+  passord_pattern = /^[a-zA-Z0-9@\$]{9}$/;
+  email_pattern = /^(?![0-9]+$)[a-zA-Z0-9]+$/;
 
-
-  constructor (private router: Router,
+  constructor (
+               private router: Router,
                private authService:AuthService,
                private loader : LoaderService,
                private ns : NotificationService
@@ -25,8 +28,8 @@ export class LoginComponent {
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      username : new FormControl ("", [Validators.required]),
-      password : new FormControl("", [Validators.required] )
+      username : new FormControl ("", [Validators.required, Validators.pattern(this.email_pattern)]),
+      password : new FormControl("", [Validators.required,Validators.pattern(this.passord_pattern)] )
     }) 
   }
 
@@ -47,12 +50,15 @@ export class LoginComponent {
            this.apiRes = res
            setTimeout(() => {
             this.loader.hide();
-           this.ns.showNotification(" alert alert-success", "Login Successfully")
+           this.ns.showNotification(" alert alert-success", "Login Successfully",true)
        
            if(this.apiRes.token){
             localStorage.setItem("token",this.apiRes.token);
             console.log(localStorage.setItem("token",this.apiRes.token))
            //  this.router.navigate(["/dashboard"])
+            }
+            else{
+              this.ns.showNotification(" alert alert-danger"," Username or Password is worng !",false)
             }
             this.router.navigate(["/dashboard"])
 
@@ -61,6 +67,7 @@ export class LoginComponent {
         })
        
       }
+      
     },2000);
 
     this.loader.hide();
