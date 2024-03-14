@@ -6,7 +6,9 @@ import { Subject } from 'rxjs';
 })
 export class NotificationService {
 
-  public notifications = new Subject<{ icon: any; type: string, message: string }>();
+  isHideMessage : boolean = true ;
+
+  public notifications = new Subject<{ icon: any; type: string, message: string  }>();
 
   public notifications$ = this.notifications.asObservable();
 
@@ -14,17 +16,20 @@ export class NotificationService {
   message!:string;
   timeOut!:number | string;
   icon:boolean|any;
+
   constructor( ) {
+
     // setTimeout(() => {
-    //   this.showNotification(this.type,this.message)
+    //   this.isHideMessage = false ;
     // }, 3000);
   }
-  ngOnInit(): void {
-    this.showNotification(this.type,this.message, this.icon)
+  // ngOnInit(): void {
+  //   this.showNotification(this.type,this.message, this.icon)
     
-  }
+  // }
   showNotification(type: string, message: string, icon:boolean ) {
     this.notifications.next({ type, message, icon });
+
   }
 
 

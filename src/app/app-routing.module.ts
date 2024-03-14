@@ -20,11 +20,11 @@ const routes: Routes = [
     canActivate:[AuthenticationGuard],
     children: 
     [
-     {
-        path: "login",
-        component: LoginComponent,
-        canActivate: [AuthenticationGuard]
-      },
+    //  {
+    //     path: "login",
+    //     component: LoginComponent,
+    //     canActivate: [AuthenticationGuard]
+    //   },
       {
         path: "",
         // component: ForgetPasswordComponent,
@@ -41,10 +41,12 @@ const routes: Routes = [
       {
         path: "dashboard",
         loadChildren: () => import("./modules/dashboard/dashboard.module").then(m => m.DashboardModule),
+        data:{id:'1',name:"Dashboard"},
       },
       {
         path: "user",
-        loadChildren: () => import("./modules/user/user.module").then(m => m.UserModule)
+        loadChildren: () => import("./modules/user/user.module").then(m => m.UserModule),
+        data:{id:'1',name:"User"},
       },
       {
         path: "settings",
@@ -53,10 +55,10 @@ const routes: Routes = [
      
     ]
   },
-  {
-    path:"noti",
-    component:NotificationComponent
-  },
+  // {
+  //   path:"noti",
+  //   component:NotificationComponent
+  // },
   {
     path: "**",
     component:ErrorComponent

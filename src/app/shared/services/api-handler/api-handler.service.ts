@@ -14,18 +14,16 @@ export class ApiHandlerService {
 
   constructor( private http: HttpClient)  { }
   
-  get (url:string) {
-    return this.http.get(url)
+  doGet (url:string , header?:object |any) {
+    return this.http.get(url, header )
   }
  
-  doPost(url?:any,data?:any,headers?:any):Observable<any> {
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   'accept': 'application/json'
-    // });
+  doPost(url:string,data?: object,headers?:object, showLoder?:boolean  ):Observable<any> {
+    
      return this.http.post(url,data ,headers).pipe(
-      // catchError(this.error),
-     
+      catchError((error ) => {
+        return error.message
+      })
      )
   }
 

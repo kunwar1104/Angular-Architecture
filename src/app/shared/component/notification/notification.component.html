@@ -1,55 +1,34 @@
-<!-- <div class="alert alert-success toast" role="alert" aria-live="assertive" aria-atomic="true">
+<div class="toast fade show " role="alert" aria-live="assertive" aria-atomic="true" autohide="true" *ngIf="isHideMessage">
+  <ng-container *ngIf="$notification | async as ns ">
+
     <div class="toast-header">
-      <strong class="me-auto">Notification</strong>
-      <small>11 mins ago</small>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      <strong class="me-auto"></strong>
+      <!-- <small>{{ n }}</small> -->
+      <button type="button" class="btn-close " data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
-    <div class="toast-body">
-      This is a notification.
-    </div>
-  </div>
-  <div class="alert alert-danger toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <strong class="me-auto">Notification</strong>
-      <small>11 mins ago</small>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">
-      This is a notification.
-    </div>
-  </div> -->
-  <!-- <div class="toast-container position-absolute top-0 end-0" role="alert" aria-live="assertive" aria-atomic="true"> -->
-    <div class="toast fade show " 
-          role="alert"
-          aria-live="assertive"
-          aria-atomic="true"  
-          autohide="true"
-          >
-     <ng-container *ngIf="$notification | async as ns ">
-     
-      <div class="toast-header" >
-        <strong class="me-auto"></strong>
-        <!-- <small>{{ n }}</small> -->
-        <button type="button" class="btn-close " data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-      <div class="toast-body" [ngClass]="ns.type   " >
-        
-        <span  >{{ ns.message }}</span>&nbsp;
+    <div class="toast-body" [ngClass]="ns.type   ">
 
-          <span *ngIf="ns.icon; else error" >
-            <svg  class="my-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
-          </span>
+      <span>{{ ns.message }}</span>&nbsp;
 
-         <ng-template #error >
+      <span *ngIf="ns.icon; else error">
+        <svg class="my-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <path
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+        </svg>
+      </span>
 
-          <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2 my-icon" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-          </svg>
+      <ng-template #error>
 
-         </ng-template>
-         
-      </div>
-    </ng-container>
+        <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2 my-icon"
+          viewBox="0 0 16 16" role="img" aria-label="Warning:">
+          <path
+            d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+        </svg>
+
+      </ng-template>
+
     </div>
-    
-  <!-- </div> -->
+  </ng-container>
+</div>
+
+<!-- </div> -->

@@ -7,8 +7,13 @@ import { AuthenticationGuard } from '../shared/guards/authentication/authenticat
 const routes: Routes = [
   {
     path:"",
-    redirectTo:"for-pass",
+    redirectTo:"login",
     pathMatch:"full"
+  },
+  {
+    path: "login",
+    component: LoginComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     path: "for-pass",

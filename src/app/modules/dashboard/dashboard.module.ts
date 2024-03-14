@@ -11,10 +11,10 @@ import { FooterComponent } from 'src/app/shared/component/footer/footer.componen
 
 @NgModule({
   declarations: [
-    DashboardLayoutComponent,
+    // DashboardLayoutComponent,
     DashboardComponent,
-    HeaderSidebarComponent,
-    FooterComponent,
+    // HeaderSidebarComponent,
+    // FooterComponent,
     // UserComponent,
     // SettingsComponent
 
@@ -22,10 +22,14 @@ import { FooterComponent } from 'src/app/shared/component/footer/footer.componen
   imports: [
     CommonModule,
     DashboardRoutingModule,
+    
   ],
   exports: [
     DashboardComponent,
-    DashboardLayoutComponent
+    // HeaderSidebarComponent,
+    // FooterComponent,
+    // DashboardLayoutComponent
   ]
+  
 })
 export class DashboardModule { }

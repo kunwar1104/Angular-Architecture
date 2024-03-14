@@ -13,37 +13,27 @@ export class NotificationComponent {
   message!:string | any;
   icon:boolean |any;
   time?:string; 
-  
+  isHideMessage? : boolean = true;
+
   constructor(  private notificationService: NotificationService ) {
-    
-    this.notificationService.showNotification(" alert alert-success", "Login Successfully", this.icon)
+
+    this.notificationService.showNotification(this.type, this.message, this.icon);
+
+    // if(this.message === this.message ) {
+    //   setTimeout(() => {
+    //     console.log("isHideMessage Called")
+    //     console.log(this.isHideMessage )
+    //        this.isHideMessage = false
+    //        console.log(this.isHideMessage)
+    //   }, 5000);
+    // }
+   
   }
   
-  // ngOnInit(): void {
-  //   this.notificationService.showNotification(this.type,this.message  )
-    
-  // };
-
-  closeNotification(){
-    document.querySelector("button.btn-close")
-    console.log("close clicked")
-  }
-//   this.notificationService.showNotification('success', 'Operation completed successfully!');
-// // Or:
-// this.notificationService.showNotification('failure', 'An error occurred:', '11 mins ago');  
-
-  // show_Success_Notification() {
-  //   // Get the notification element
-  //   const notificationElement :any = document.querySelector('.toast .alert-success');
-
-  //   // Show the notification
-  //   notificationElement.classList.add('show');
-  // };
-
-  // show_Failure_Notification() {
-  //   const notificationElement :any = document.querySelector('.toast .alert-danger');
-
-  //   notificationElement.classList.add('show');
-     
+ 
+  // closeNotification(){
+  //   document.querySelector("button.btn-close")
+  //   console.log("close clicked")
   // }
+
 }

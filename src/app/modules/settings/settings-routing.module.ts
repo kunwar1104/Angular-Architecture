@@ -13,14 +13,15 @@ const routes: Routes = [
   {
     path: "modules",
     component: ModulesComponent,
+    data:{id:'1', name:"Modules"},
     canActivate: [DashboardGuard],
 
   },
   {
     path: "permission",
     component: PermissionComponent,
+    data:{ id:'1', name:"Permission"},
     canActivate: [DashboardGuard],
-
   }
 
 ];

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +11,10 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { ErrorComponent } from './shared/component/error/error.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { DashboardLayoutComponent } from './shared/component/layout/dashboard-layout/dashboard-layout.component';
+import { HeaderSidebarComponent } from './shared/component/header-sidebar/header-sidebar.component';
+import { FooterComponent } from './shared/component/footer/footer.component';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations'; // Import here
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,19 +23,27 @@ import { HttpClientModule } from '@angular/common/http';
     AuthLayoutComponent,
     LoaderComponent,
     ErrorComponent,
-    NotificationComponent
+    NotificationComponent,
+    DashboardLayoutComponent,
+    HeaderSidebarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule 
+    
   ],
-  // exports: [
-  //   DashboardLayoutComponent
-  // ],
+  exports: [
+    DashboardLayoutComponent
+  ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  // schemas: [CUSTOM_ELEMENTS_SCHEMA]
+
 })
 export class AppModule { }

@@ -8,11 +8,8 @@ import { LoaderService } from './shared/services/loader/loader.service';
 })
 export class AppComponent {
   title = 'Angular-Architecture';
-
-  // loading$ = this.loadingService.loading$;
-
-  // constructor(
-  //   private loadingService: LoaderService,
+  
+  ngOnInit(): void {
     
-  // ) { }
+  }
 }

@@ -31,7 +31,7 @@
         placeholder="Please Enter Password" required>
       <div class="error " *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
         <small *ngIf="loginForm.get('password')?.hasError('required')">Password is required</small>
-        <small *ngIf="loginForm.get('password')?.hasError('pattern')">Password Atlest 9 Charectors </small>
+        <small *ngIf="loginForm.get('password')?.hasError('pattern')">Password must have 9 characters </small>
 
       </div>
 

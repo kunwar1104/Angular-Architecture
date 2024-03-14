@@ -137,10 +137,10 @@ main {
   transform-origin: .5em 50%;
 }
 
-.btn-toggle[aria-expanded="true"] {
+.btn-toggle[aria-expanded="false"] {
   color: rgba(0, 0, 0, .85);
 }
-.btn-toggle[aria-expanded="true"]::before {
+.btn-toggle[aria-expanded="false"]::before {
   transform: rotate(90deg);
 }
 
@@ -167,3 +167,89 @@ main {
   position: absolute;
   bottom: 0px;
 }
+.title{
+  color: white;
+  font-size: 18px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.offcanvas{
+  width:  250px;
+}
+@media (maxwidth: 400px) {
+  .btn-toggle[aria-expanded="true"] {
+    color: rgba(0, 0, 0, .85);
+  }
+  .btn-toggle[aria-expanded="true"]::before {
+    transform: rotate(90deg);
+  }
+  .offcanvas .offcanvas-end{
+    top: 0;
+  right: 0;
+  width: var(--bs-offcanvas-width);
+  border-left: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
+  transform: translateX(100%);
+  }
+  .offcanvas{
+      display: none;
+    }
+}
+// @media (maxwidth: 600px) {
+//   .offcanvas .offcanvas-end{
+//     top: 0;
+//   right: 0;
+//   width: var(--bs-offcanvas-width);
+//   border-left: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
+//   transform: translateX(100%);
+//   }
+// }
+// .offcanvas{
+//   width:  150px;
+// }
+// .offcanvas-header{ display:block; }
+
+// 	.mobile-offcanvas{
+// 		visibility: hidden;
+// 		transform:translateX(-100%);
+// 		border-radius:0; 
+// 		display:block;
+// 		position: fixed;  top: 0; left:0;
+// 		height: 100%; width:80%;
+// 		z-index: 1200; 
+// 		overflow-y: scroll;
+// 		overflow-x: hidden;
+// 		transition: visibility .3s ease-in-out, transform .3s ease-in-out;
+// 	}
+
+// 	.mobile-offcanvas.show{
+// 		visibility: visible; 	transform: translateX(0);
+// 	}
+// 	.mobile-offcanvas .container, .mobile-offcanvas .container-fluid{
+// 		display: block;
+// 	}
+// }
+// @media (maxwidth: 650px) {
+//   .offcanvas{
+//     width:  170px;
+//   }
+//   .offcanvas-header{ display:block; }
+
+// 	.mobile-offcanvas{
+// 		visibility: hidden;
+// 		transform:translateX(-100%);
+// 		border-radius:0; 
+// 		display:block;
+// 		position: fixed;  top: 0; left:0;
+// 		height: 100%; width:80%;
+// 		z-index: 1200; 
+// 		overflow-y: scroll;
+// 		overflow-x: hidden;
+// 		transition: visibility .3s ease-in-out, transform .3s ease-in-out;
+// 	}
+
+// 	.mobile-offcanvas.show{
+// 		visibility: visible; 	transform: translateX(0);
+// 	}
+// 	.mobile-offcanvas .container, .mobile-offcanvas .container-fluid{
+// 		display: block;
+// 	}
+// }

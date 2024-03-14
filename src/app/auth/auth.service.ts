@@ -13,15 +13,16 @@ export class AuthService {
   
   constructor( private apiHandler: ApiHandlerService) { }
 
-  login(data:LOGIN): Observable<any>  {
+  login(data:LOGIN,): Observable<LOGIN>  {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'accept': 'application/json'
     });
-    return this.apiHandler.doPost(this.url_Login,data,{headers}).pipe( 
-    tap(res => {
-        console.log("res =",res)
-    })
-    );
+    return this.apiHandler.doPost(this.url_Login,data,{headers}, true )// here true is for loader
+    // .pipe(                                                           // variar
+    // tap(res => {
+    //     console.log("res =",res)
+    // })
+    // );
   }
 }

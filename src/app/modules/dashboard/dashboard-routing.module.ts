@@ -14,6 +14,7 @@ const routes: Routes = [
   {
       path: "",
       component: DashboardComponent,
+      data:{id:'1',name:"Dashboard"},
       canActivate: [DashboardGuard],
 
   },
