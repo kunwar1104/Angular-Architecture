@@ -9,25 +9,14 @@ import { AuthenticationGuard } from './shared/guards/authentication/authenticati
 import { NotificationComponent } from './shared/component/notification/notification.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: "login",
-  //   pathMatch: "full"
-  // },
   {
     path: "",
     component: AuthLayoutComponent,
     canActivate:[AuthenticationGuard],
     children: 
     [
-    //  {
-    //     path: "login",
-    //     component: LoginComponent,
-    //     canActivate: [AuthenticationGuard]
-    //   },
       {
         path: "",
-        // component: ForgetPasswordComponent,
         loadChildren: () => import("./auth/auth.module").then(m => m.AuthModule)
 
       },
@@ -52,20 +41,12 @@ const routes: Routes = [
         path: "settings",
         loadChildren: () => import("./modules/settings/settings.module").then(m => m.SettingsModule)
       },
-     
     ]
   },
-  // {
-  //   path:"noti",
-  //   component:NotificationComponent
-  // },
   {
     path: "**",
     component:ErrorComponent
   },
- 
-
-
 ];
 
 @NgModule({
