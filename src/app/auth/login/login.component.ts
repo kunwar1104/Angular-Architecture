@@ -14,7 +14,7 @@ import { LOGIN } from 'src/app/shared/models/auth-model';
 export class LoginComponent {
   loginForm!: FormGroup<LOGIN | any>;
   sending: boolean = false;
-  apiRes! : string | object | number | any;
+  apiRes? :  any;
   icon:boolean|any;
   // email_pattern = /^([a-zA-Z0-9][a-zA-Z0-9\-_]*|\.[a-zA-Z0-9\-_]+)$/;
   passord_pattern = /^[a-zA-Z0-9@\$]{9}$/;
@@ -49,20 +49,24 @@ export class LoginComponent {
       if (this.loginForm.valid) {
         this.authService.login(data).subscribe((res:any)  =>{
            this.apiRes = res
-           console.log(this.apiRes)
+           console.log(this.apiRes);
+
+           if(this.apiRes.token){
+            localStorage.setItem("token",this.apiRes.token);
+            this.ns.showNotification(" alert alert-success", "Login Successfully",true)
+
+             console.log(localStorage.setItem("token",this.apiRes.token))
+              this.router.navigate(["/dashboard"])
+            }
+            else{
+              this.ns.showNotification(" alert alert-danger",this.apiRes.response.message,false)
+            }
+            
            setTimeout(() => {
 
                 this.loader.hide();
-              this.ns.showNotification(" alert alert-success", "Login Successfully",true)
           
-              if(this.apiRes.token){
-                localStorage.setItem("token",this.apiRes.token);
-                console.log(localStorage.setItem("token",this.apiRes.token))
-               this.router.navigate(["/dashboard"])
-                }
-                else{
-                  this.ns.showNotification(" alert alert-danger",this.apiRes.response.message,false)
-                }
+             
                 // this.router.navigate(["/dashboard"])
 
            },1000)
@@ -73,7 +77,7 @@ export class LoginComponent {
       
     },2000);
 
-    // this.loader.hide();
+    this.loader.hide();
   }
 
   forget_Pass(){

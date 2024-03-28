@@ -16,14 +16,12 @@ export class DashboardGuard implements CanActivate {
         if(localStorage.getItem("token")) {
           
           console.log("Dashboard Token ",localStorage.getItem("token"));
-          // this.route.navigate(['/dashboard']);
       
       return true;
-    }else{
+    } 
+    else{
         this.route.navigate(['/login']);
       return false;
-
-
     }
   }
   

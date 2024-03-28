@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { LOGIN } from '../../models/auth-model';
-import { Observable, catchError,throwError } from 'rxjs';
+import { Observable, catchError,map,throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ import { Observable, catchError,throwError } from 'rxjs';
 export class ApiHandlerService {
    
   // private url : string = "http://localhost:3000";
-  error = new Error();
+  // error = new Error();
   
 
   constructor( private http: HttpClient)  { }
@@ -20,10 +20,10 @@ export class ApiHandlerService {
  
   doPost(url:string,data?: object,headers?:object, showLoder?:boolean  ):Observable<any> {
     
-     return this.http.post(url,data ,headers).pipe(
-      catchError((error ) => {
-        return error.message
-      })
+     return this.http.post(url,data ,headers).pipe(  
+          //  console.log(res)
+           catchError(this.handelError)
+     
      )
   }
 
@@ -32,7 +32,7 @@ export class ApiHandlerService {
 
   }
   
-  private handelError(error: HttpErrorResponse): Observable<never> {
+  private handelError(error: HttpErrorResponse): Observable<any> {
     
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {
